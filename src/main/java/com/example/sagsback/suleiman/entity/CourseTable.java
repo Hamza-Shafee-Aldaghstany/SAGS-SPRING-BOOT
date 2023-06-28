@@ -1,5 +1,6 @@
 package com.example.sagsback.suleiman.entity;
 
+import com.example.sagsback.Hamza.entity.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,6 @@ public class CourseTable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
     private String description;
-
-
+    private int rowNumber;
+    private int columnNumber;
 }
