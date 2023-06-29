@@ -7,7 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,8 +22,10 @@ public class CourseTable {
     private Long id;
     private String name;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
+    private String createdDate;
     private String description;
-    private int rowNumber;
-    private int columnNumber;
+    private int rowN;
+    private int columnN;
+    @OneToMany(mappedBy = "courseTable", cascade = CascadeType.ALL)
+    private List<CourseCell> courseCells = new ArrayList<>();
 }
