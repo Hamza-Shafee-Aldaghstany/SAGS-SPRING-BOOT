@@ -2,26 +2,26 @@ package com.example.sagsback.Vlad.controller;
 
 import com.example.sagsback.Hamza.entity.User;
 import com.example.sagsback.Vlad.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     // Create a new user
-    @PostMapping("/")
+    @PostMapping()
     public User createUser(@RequestBody User user) {
         return userRepository.save(user);
     }
 
     // Read all users
-    @GetMapping("/")
+    @GetMapping()
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
